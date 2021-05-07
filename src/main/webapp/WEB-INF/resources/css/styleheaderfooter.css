@@ -1,0 +1,42 @@
+.header{
+	background-color: #333;
+	color:#fff;;
+	text-align: center;
+}
+
+.content{
+}
+
+img{
+	width: 100%;
+	height:70px;;
+}
+.phlogin{
+	width:10%;
+}
+nav img {
+	width: 30px;
+	height: 30px;
+	margin-left : 20px;
+}
+#nav_droite{
+	margin: 20px;
+	padding-left: 10px;
+}
+body{
+	background-color: #f5fffa;
+}
+footer{
+	background-color: #333;
+	height: 10vh;
+	color:#fff;
+	padding: 0;
+	text-align: center;
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+
+
