@@ -28,7 +28,7 @@ public class MainController {
 		return "listmanager";
 	}
 	@GetMapping(path = "/listemployee")
-	public String gotolistemployee() {
+	public String getListEmployee() {
 		return "listemployee";
 	}
 	@GetMapping(path = "/param")
