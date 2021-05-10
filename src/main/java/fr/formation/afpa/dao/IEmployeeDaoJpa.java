@@ -13,6 +13,7 @@ public interface IEmployeeDaoJpa {
 	
 	// create
 	Integer save(Employee e);
+
 	
 	// update
 	Employee update(Employee e);
@@ -21,4 +22,9 @@ public interface IEmployeeDaoJpa {
 	void delete(Employee e);
 	void deleteById(Integer id);
 	
+	//open
+	void beginTransaction();
+	
+	//close
+	void closeTransaction();
 }

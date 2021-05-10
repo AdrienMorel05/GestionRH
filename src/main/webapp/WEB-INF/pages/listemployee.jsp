@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -50,20 +51,22 @@
                         <th>Action</th>
                     </tr> 
                   </thead>
+                  <c:forEach var="emp" items="${list}">
                   <tbody>
                           <tr>
-                            <th>1</th>
-                        	<th>Employee ou manager Prénom</th>
-                        	<th>Employee ou manager Nom</th>
-                        	<th>Employee ou manager Titre</th>
-                        	<th>Employee ou manager Date d'embauche</th>
-                        	<th>Employee ou manager ID du Manager</th>
+                            <th>${Employee.emp_Id}</th>
+                        	<th>${Employee.firstName}</th>
+                        	<th>${lastName}</th>
+                        	<th>${title}</th>
+                        	<th>${startDate}</th>
+                        	<th>${manager}</th>
                             <td align="center">
-                              <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                              <a class="badge rounded-pill bg-success">Edit</a>
+							  <a class="badge rounded-pill bg-danger">Delete</a>
                             </td>
                           </tr>
                         </tbody>
+                        </c:forEach>
                 </table>
     
               </div>

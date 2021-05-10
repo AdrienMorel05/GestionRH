@@ -6,16 +6,18 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.springframework.stereotype.Repository;
+
 import fr.formation.afpa.domain.Employee;
 
-
+@Repository
 public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 	private EntityManagerFactory emf;
 	private EntityManager em;
 
 	public EmployeeDaoJpa() {
-		emf = Persistence.createEntityManagerFactory("unitBD");
+		emf = Persistence.createEntityManagerFactory("BD");
 	}
 
 	public void beginTransaction() {

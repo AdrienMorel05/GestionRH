@@ -57,8 +57,8 @@
                         	<th>Manager_Titre</th>
                         	<th>Manager_Date d'embauche</th>
                             <td align="center">
-                              <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                               <a class="badge rounded-pill bg-success text-white">Edit</a>
+							  <a class="badge rounded-pill bg-danger text-white">Delete</a>
                             </td>
                           </tr>
                         </tbody>

@@ -18,9 +18,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Employee {
+
 @Id
 @GeneratedValue (strategy= GenerationType.IDENTITY)
-
 @Column(name = "emp_Id", unique = true, nullable=false)
 private int empId;
 
@@ -30,7 +30,6 @@ private Employee manager;
 
 @OneToMany(fetch = FetchType.LAZY, mappedBy = "manager")
 private Set<Employee> employees =  new HashSet<Employee>();
-
 
 @Column(name ="first_Name",  nullable=false, length = 30)
 private String firstName;
@@ -130,6 +129,16 @@ public Set<Employee> getEmployees() {
 
 public void setEmployees(Set<Employee> employees) {
 	this.employees = employees;
+}
+
+
+public Employee(int empId, String firstName, String lastName, String title, Date startDate,Employee manager) {
+	this.empId = empId;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.title = title;
+	this.startDate = startDate;
+	this.manager = manager;
 }
 
 @Override
