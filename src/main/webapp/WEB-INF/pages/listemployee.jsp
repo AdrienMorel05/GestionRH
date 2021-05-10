@@ -4,8 +4,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Liste de tous les employees</title>
@@ -51,13 +52,12 @@
                         <th>Action</th>
                     </tr> 
                   </thead>
-                  <c:forEach var="emp" items="${list}">
                   <tbody>
-                          <tr>
-                            <th>${Employee.emp_Id}</th>
-                        	<th>${Employee.firstName}</th>
-                        	<th>${lastName}</th>
-                        	<th>${title}</th>
+                          <tr th:each="employee : ${list}">
+                            <th>th:text=${employee.emp_Id}</th>
+                        	<th><span th:text="${employee.firstName}"> </span></th>
+                        	<th><span th:text="${employee.lastName}"> </span></th>
+                        	<th><span th:text="${employee.title}">title</span></th>
                         	<th>${startDate}</th>
                         	<th>${manager}</th>
                             <td align="center">
@@ -66,7 +66,6 @@
                             </td>
                           </tr>
                         </tbody>
-                        </c:forEach>
                 </table>
     
               </div>

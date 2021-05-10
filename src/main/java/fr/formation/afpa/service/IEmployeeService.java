@@ -2,8 +2,6 @@ package fr.formation.afpa.service;
 
 import java.util.List;
 
-import org.hibernate.Session;
-
 import fr.formation.afpa.domain.Employee;
 
 

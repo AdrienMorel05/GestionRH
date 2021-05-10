@@ -141,6 +141,21 @@ public Employee(int empId, String firstName, String lastName, String title, Date
 	this.manager = manager;
 }
 
+public Employee(int empId, String firstName, String lastName, String title, Date startDate) {
+	this.empId = empId;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.title = title;
+	this.startDate = startDate;
+}
+
+public Employee(String firstName, String lastName, String title, Date startDate) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.title = title;
+	this.startDate = startDate;
+}
+
 @Override
 public String toString() {
 	return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="

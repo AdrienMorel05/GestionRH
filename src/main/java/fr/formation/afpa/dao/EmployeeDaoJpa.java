@@ -48,10 +48,16 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 		return em.createQuery("select emp from Employee emp").getResultList();
 	}
 
+	public List<Employee> findManager() {
+
+		return em.createQuery("select emp from Employee emp WHERE EMP_ID in (select distinct 'SUPERIOR_EMP_ID' from Employee)").getResultList();
+	}
+	
 	public Integer save(Employee e) {
 		em.persist(e);
 		return e.getEmpId();
 	}
+
 
 	public Employee update(Employee e) {
 		return em.merge(e);

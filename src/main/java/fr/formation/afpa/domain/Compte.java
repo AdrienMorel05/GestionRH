@@ -24,6 +24,7 @@ public class Compte implements java.io.Serializable {
 
 	public Compte() {
 	}
+	
 
 	public Compte(int customerCustId) {
 		this.customerCustId = customerCustId;

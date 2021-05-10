@@ -25,26 +25,34 @@
         <div class="col-md-offset-5 col-md-3">
 <div class="form-login">
             <h4>Ajout d'un Manager/Employee</h4>
-<form:form action=""  method="post">
+            
+<form:form modelAttribute="employee" action="ajout"  method="post">
 <div class="champs">
-<label>Votre nom</label>
-<input type="text" name="name"/>
-
 <label>Votre Prénom</label>
-<input type="text" name="first_name" />
+<form:input path="firstname" type="text" />
+<form:errors path="firstName" />
+
+
+<label>Votre nom</label>
+<form:input path="name"  type="text" />
+<form:errors path="name" />
 
 <label>Votre titre</label>
-<input type="text" name="title" />
+<form:input path="title" type="text" />
+<form:errors path="title" />
+
 
 <label>Votre date d'embauche</label>
-<input type="date" name="date" />
+<form:input path="date" type="date"  />
+<form:errors path="date" />
+
 
 <label>Id de votre manager</label>
-<select  name="typeclient">
-<option value="1" label="1"/>
-<option value="2" label="2"/>
-<option value="3" label="3"/>
-</select>
+<form:select path="idmanager" >
+<form:option value="1" label="1"/>
+<form:option value="2" label="2"/>
+<form:option value="3" label="3"/>
+</form:select>
 <br>
 </div>
 <input class="enregistrer" type="submit" value="Enregistrer"/>
