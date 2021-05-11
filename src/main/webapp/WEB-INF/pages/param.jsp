@@ -34,6 +34,7 @@
                     <h3 class="panel-title">Liste des Employee sans Managers</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
+                  
 <!--                      <button type="button" class="btn btn-sm btn-primary btn-create" onclick="return confirm('Are you sure to Add Manager?')" >Ajouter manager</button></a>
  -->                  </div>
                 </div>
