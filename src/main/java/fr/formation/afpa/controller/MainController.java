@@ -117,15 +117,11 @@ public class MainController {
 	}
 
 	@GetMapping(path = "/update")
-	public String gotoupdate(@ModelAttribute("employee") Employee employee, Model model, @RequestParam(name="empId") int empId) {
+	public String gotoupdate(Model model, @RequestParam(name="empId") int empId) {
 
-		employee = service.findByIdforupdate(empId);
-		
-		model.addAttribute("firstName", employee.getFirstName());
-		model.addAttribute("lastName", employee.getLastName());
-		model.addAttribute("startdate", employee.getStartDate());
-		model.addAttribute("title", employee.getTitle());
-		model.addAttribute("manager", employee.getManager());
+		Employee employee = service.findByIdforupdate(empId);
+		model.addAttribute("employee",employee);
+
 		return "update";
 	}
 	

@@ -10,7 +10,8 @@ public interface IEmployeeService {
 	Employee findById(Integer id);
 	List<Employee> findAll();
 	List<Employee> findManager();	
-	
+	List<Employee> findParam();
+
 	
 	Employee save(Employee t);
 

@@ -30,7 +30,7 @@
 <form:hidden path="empId"/>
 <div class="champs">
 <label>Votre Prénom</label>
-<form:input path="firstName" value="${firstName}"/>
+<form:input path="firstName" />
 <form:errors path="firstName" />
 
 

@@ -14,9 +14,7 @@ public class App {
 	public static void main(String[] args) {
 
 		EmployeeDaoJpa dao = new EmployeeDaoJpa();
-		dao.beginTransaction();
-		List<Employee> list = dao.findManager();
-		dao.closeTransaction();
+		List<Employee> list = dao.findParam();
 		System.out.println(list);
 	}
 }
