@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ajouter un Manager ou un employée</title>
+<title>Modifier un employée</title>
 <link rel="stylesheet" type="text/css" href="styles/styleheaderfooter.css" />
 <link rel="stylesheet" type="text/css" href="styles/styleajout.css" />
 
@@ -59,7 +59,7 @@
 <input class="enregistrer" type="submit" value="Enregistrer"/>
 
 </form:form>
-<img class="photo" alt="titephoto" src="img/serrermain.jpg">
+<img class="photo" alt="titephoto" src="img/updte.jpg">
         
             </div>
         </div>

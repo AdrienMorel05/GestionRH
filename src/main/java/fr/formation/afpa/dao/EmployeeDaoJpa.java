@@ -18,6 +18,7 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 	public EmployeeDaoJpa() {
 		emf = Persistence.createEntityManagerFactory("BD");
+		em = emf.createEntityManager();
 	}
 
 	public void beginTransaction() {
@@ -32,6 +33,10 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 	public void closeTransaction() {
 		em.close();
+	}
+
+	public void commit() {
+		em.getTransaction().commit();
 	}
 
 	public void rollBack() {
@@ -50,14 +55,13 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 	public List<Employee> findManager() {
 
-		return em.createQuery("select emp from Employee emp WHERE EMP_ID in (select distinct 'SUPERIOR_EMP_ID' from Employee)").getResultList();
+		return em.createQuery("select distinct manager from Employee superior_emp").getResultList();
 	}
-	
+
 	public Integer save(Employee e) {
 		em.persist(e);
 		return e.getEmpId();
 	}
-
 
 	public Employee update(Employee e) {
 		return em.merge(e);

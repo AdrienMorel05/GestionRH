@@ -6,7 +6,7 @@
 
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Liste de tous les employees</title>
@@ -35,7 +35,7 @@
                     <h3 class="panel-title">Liste de tous les employées</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
-                    <button type="button" class="btn btn-sm btn-primary btn-create">Ajouter</button>
+                   <a href="ajout"> <button type="button" class="btn btn-sm btn-primary btn-create">Ajouter</button></a>
                   </div>
                 </div>
               </div>
@@ -52,20 +52,26 @@
                         <th>Action</th>
                     </tr> 
                   </thead>
+                  <c:forEach var="list" items="${list}">
                   <tbody>
-                          <tr th:each="employee : ${list}">
-                            <th>th:text=${employee.emp_Id}</th>
-                        	<th><span th:text="${employee.firstName}"> </span></th>
-                        	<th><span th:text="${employee.lastName}"> </span></th>
-                        	<th><span th:text="${employee.title}">title</span></th>
-                        	<th>${startDate}</th>
-                        	<th>${manager}</th>
+                          <tr>
+                            <th><c:out value="${list.empId}"/></th>
+                        	<th><c:out value="${list.firstName}" /></th>
+                        	<th><c:out value="${list.lastName}" /></th>
+                        	<th><c:out value="${list.title}" /></th>
+                        	<th><c:out value="${list.startDate}" /></th>
+                        	<th><c:out value="${list.manager}" /></th>
                             <td align="center">
                               <a class="badge rounded-pill bg-success">Edit</a>
-							  <a class="badge rounded-pill bg-danger">Delete</a>
+							  <a class="badge rounded-pill bg-danger" 
+							  href="delete?empId=${list.empId}"
+							  onclick="return confirm('Are you sure to delete?')" >
+							  Delete</a>
+                    				<input id="empId" name="empId" type="hidden" value="${list.empId}"/>
                             </td>
                           </tr>
                         </tbody>
+                  </c:forEach>       
                 </table>
     
               </div>

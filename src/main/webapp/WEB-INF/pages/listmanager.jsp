@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +43,6 @@
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Prénom</th>
                         <th>Nom</th>
                         <th>Titre</th>
@@ -49,19 +50,27 @@
                         <th>Action</th>
                     </tr> 
                   </thead>
+                   
+                  <c:forEach var="list" items="${list}">
+                  
                   <tbody>
                           <tr>
-                            <th>1</th>
-                        	<th>Manager_Prénom</th>
-                        	<th>Manager_Nom</th>
-                        	<th>Manager_Titre</th>
-                        	<th>Manager_Date d'embauche</th>
-                            <td align="center">
-                               <a class="badge rounded-pill bg-success text-white">Edit</a>
-							  <a class="badge rounded-pill bg-danger text-white">Delete</a>
+                          <th type="hidden">
+                            <th><c:out value="${list.firstName}" /></th>
+                        	<th><c:out value="${list.lastName}" /></th>
+                        	<th><c:out value="${list.title}" /></th>
+                        	<th><c:out value="${list.startDate}" /></th>
+                             <td align="center">
+                              <a class="badge rounded-pill bg-success">Edit</a>
+							  <a class="badge rounded-pill bg-danger" 
+							  href="delete?empId=${list.empId}"
+							  onclick="return confirm('Are you sure to delete?')" >
+							  Delete</a>
                             </td>
                           </tr>
                         </tbody>
+                   </c:forEach>       
+                        
                 </table>
             
             

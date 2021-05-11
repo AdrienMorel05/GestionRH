@@ -156,12 +156,14 @@ public Employee(String firstName, String lastName, String title, Date startDate)
 	this.startDate = startDate;
 }
 
-@Override
-public String toString() {
+public String toString2() {
 	return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="
 			+ startDate + ", endDate=" + endDate + ", title=" + title + "]";
 }
 
-
+@Override
+public String toString() {
+	return firstName+" " + lastName;
+}
 
 }
