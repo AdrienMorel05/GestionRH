@@ -62,12 +62,20 @@
                         	<th><c:out value="${list.startDate}" /></th>
                         	<th><c:out value="${list.manager}" /></th>
                             <td align="center">
-                              <a class="badge rounded-pill bg-success">Edit</a>
+                              <a class="badge rounded-pill bg-success" href="update?empId=${list.empId}">Edit</a>
+                              
+                              
+                              
 							  <a class="badge rounded-pill bg-danger" 
 							  href="delete?empId=${list.empId}"
 							  onclick="return confirm('Are you sure to delete?')" >
 							  Delete</a>
                     				<input id="empId" name="empId" type="hidden" value="${list.empId}"/>
+                    				<input id="firstName" name="firstName" type="hidden" value="${list.firstName}"/>
+                    				<input id="lastName" name="lastName" type="hidden" value="${list.lastName}" />
+                    				<input id="title" name="title" type="hidden" value="${list.title}" />
+                    				<input id="startDate" name="startDate" type="hidden" value="${list.startDate}"/>
+                    				<input id="manager" name="manager" type="hidden" value="${list.manager}" />
                             </td>
                           </tr>
                         </tbody>

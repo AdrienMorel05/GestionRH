@@ -26,12 +26,13 @@ import fr.formation.afpa.service.EmployeeService;
 public class MainController {
 
 	EmployeeService service;
+
 	@InitBinder
-    public final void initBinder(final WebDataBinder binder, final Locale locale) {
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", locale);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   
-    }
-  
+	public final void initBinder(final WebDataBinder binder, final Locale locale) {
+		final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", locale);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	}
+
 	@Autowired
 	public MainController(EmployeeService service) {
 		this.service = service;
@@ -82,35 +83,31 @@ public class MainController {
 		return "ajout";
 	}
 
-	 @PostMapping(path = "/ajout")
-	    public String ajout( @ModelAttribute("employee") Employee employee, BindingResult result,
-	            ModelMap model) {
-	    System.out.println("in the save method");
+	@PostMapping(path = "/ajout")
+	public String ajout(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model) {
 
-	 
+		Employee newEmp = new Employee();
+		model.addAttribute("firstName", employee.getFirstName());
+		model.addAttribute("lastName", employee.getLastName());
+		model.addAttribute("startdate", employee.getStartDate());
+		model.addAttribute("title", employee.getTitle());
+		model.addAttribute("manager", employee.getManager());
 
-	Employee newEmp = new Employee();
-	        model.addAttribute("firstName", employee.getFirstName());
-	        model.addAttribute("lastName", employee.getLastName());
-	        model.addAttribute("startdate", employee.getStartDate());
-	        model.addAttribute("title", employee.getTitle());
-	        model.addAttribute("manager", employee.getManager());
+		newEmp.setFirstName(employee.getFirstName());
+		newEmp.setLastName(employee.getLastName());
+		newEmp.setStartDate(employee.getStartDate());
+		newEmp.setTitle(employee.getTitle());
+		newEmp.setManager(employee.getManager());
 
-	
-	        newEmp.setFirstName(employee.getFirstName());
-	        newEmp.setLastName(employee.getLastName());
-	        newEmp.setStartDate(employee.getStartDate());
-	        newEmp.setTitle(employee.getTitle());
-	        newEmp.setManager(employee.getManager());
-	        
-	        service.save(newEmp);
-	        
-	        model.put("employee", service.findAll());
-	        return "redirect:/listemployee";
-	    }
+		service.save(newEmp);
+
+		model.put("employee", service.findAll());
+		return "redirect:/listemployee";
+	}
 
 	@GetMapping(path = "/delete")
-	public String delete(@ModelAttribute("employee") Employee employee, Model model, @RequestParam(name="empId") Integer empId) {
+	public String delete(@ModelAttribute("employee") Employee employee, Model model,
+			@RequestParam(name = "empId") Integer empId) {
 //		EmployeeDaoJpa dao = new EmployeeDaoJpa();
 //		dao.beginTransaction();
 //		dao.deleteById(empId);
@@ -118,6 +115,35 @@ public class MainController {
 		service.deleteById(empId);
 		return "redirect:/listemployee";
 	}
+
+	@GetMapping(path = "/update")
+	public String gotoupdate(@ModelAttribute("employee") Employee employee, Model model, @RequestParam(name="empId") int empId) {
+
+		employee = service.findByIdforupdate(empId);
+		
+		model.addAttribute("firstName", employee.getFirstName());
+		model.addAttribute("lastName", employee.getLastName());
+		model.addAttribute("startdate", employee.getStartDate());
+		model.addAttribute("title", employee.getTitle());
+		model.addAttribute("manager", employee.getManager());
+		return "update";
+	}
+	
+	@PostMapping(path = "/update")
+	public String update(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model) {
+		
+		employee.setFirstName(employee.getFirstName());
+		employee.setLastName(employee.getLastName());
+		employee.setStartDate(employee.getStartDate());
+		employee.setTitle(employee.getTitle());
+		employee.setManager(employee.getManager());
+
+		service.update(employee);
+
+		model.put("employee", service.findAll());
+		return "redirect:/listemployee";
+	}
+	
 	
 	@GetMapping(path = "/contact")
 	public String contact() {

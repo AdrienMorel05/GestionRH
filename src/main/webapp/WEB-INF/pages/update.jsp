@@ -24,27 +24,27 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
 <div class="form-login">
-            <h4>Ajout d'un Manager/Employee</h4>
+            <h4>Modification d'un Manager/Employee</h4>
             
-<form:form modelAttribute="employee" action="ajout"  method="post">
+<form:form modelAttribute="employee" action="update"  method="post">
 <form:hidden path="empId"/>
 <div class="champs">
 <label>Votre Prénom</label>
-<form:input path="firstName"/>
+<form:input path="firstName" value="${firstName}"/>
 <form:errors path="firstName" />
 
 
 <label>Votre nom</label>
-<form:input path="lastName"/>
+<form:input path="lastName" value="${lastName}"/>
 <form:errors path="lastName" />
 
 <label>Votre titre</label>
-<form:input path="title" />
+<form:input path="title" value="${title}"/>
 <form:errors path="title" />
 
 
 <label>Votre date d'embauche</label>
-<form:input path="startDate" type="date"  />
+<form:input path="startDate" type="date" value="${startDate}"/>
 <form:errors path="startDate" />
 
 
@@ -56,10 +56,9 @@
 </form:select> --%>
 <br>
 </div>
-<input class="enregistrer" type="submit" value="Enregistrer"/>
-
+<input class="Modifier" type="submit" value="Enregistrer"/>
 </form:form>
-<img class="photo" alt="titephoto" src="img/updte.jpg">
+<img class="photo" alt="titephoto" src="img/update.jpg">
         
             </div>
         </div>

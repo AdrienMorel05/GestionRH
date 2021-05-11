@@ -76,5 +76,9 @@ public class EmployeeService implements IEmployeeService {
 		Employee emp = dao.findById(id);
 		return emp;
 	}
-
-}
+	public Employee findByIdforupdate(Integer id) {
+		dao.beginTransaction();
+		Employee emp = dao.findById(id);
+		dao.commitAndCloseTransaction();
+		return emp;
+	}}
