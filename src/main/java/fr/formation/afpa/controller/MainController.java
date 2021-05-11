@@ -46,13 +46,18 @@ public class MainController {
 
 	}
 
+////////////////////////////////liste manager////////////////////////////////////////////////////////////////
 	@GetMapping(path = "/")
 	public String getHome() {
 		return "login";
 	}
 
 	@PostMapping(path = "/manager")
-	public String login(@ModelAttribute("employee") Employee employee) {
+	public String login(@ModelAttribute("employee") Employee employee, Model model) {
+		List<Employee> list = service.findManager();
+		System.out.println(list);
+		model.addAttribute("list", list);
+		System.out.println(list);
 		return "listmanager";
 	}
 
@@ -64,6 +69,7 @@ public class MainController {
 		System.out.println(list);
 		return "listmanager";
 	}
+////////////////////////////////liste employee////////////////////////////////////////////////////////////////
 
 	@GetMapping(path = "/listemployee")
 	public String getListEmployee(@ModelAttribute("employee") Employee employee, Model model) {
@@ -73,31 +79,50 @@ public class MainController {
 		return "listemployee";
 	}
 
+////////////////////////////////liste param////////////////////////////////////////////////////////////////
 	@GetMapping(path = "/param")
-	public String gotoparam(@ModelAttribute("employee") Employee employee) {
+	public String gotoparam(@ModelAttribute("employee") Employee employee, Model model) {
+		List<Employee> list = service.findParam();
+		model.addAttribute("list", list);
+		List<Employee> manager = service.findManager();
+		model.addAttribute("manager", manager);
+
 		return "param";
 	}
 
+//	@PostMapping(path = "/ajout")
+//	public String paramUpdate(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model,
+//			@RequestParam(value = "manager", required = false) Integer manager) {
+//
+//		Employee managerchef = service.findById(manager);
+//		employee.setManager(managerchef);
+//		service.update(employee);
+//		return "redirect:/listemployee";
+//	}
+
+//////////////////////////////// la fonction ajout ////////////////////////////////////////////////////////////////
+
 	@GetMapping(path = "/ajout")
-	public String ajout(@ModelAttribute("employee") Employee employee) {
+	public String ajout(@ModelAttribute("employee") Employee employee, Model model,
+			@RequestParam(value = "manager", required = false) Integer manager) {
+		List<Employee> listmanager = service.findManager();
+		model.addAttribute("manager", listmanager);
+
 		return "ajout";
 	}
 
 	@PostMapping(path = "/ajout")
-	public String ajout(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model) {
+	public String ajout(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model,
+			@RequestParam(value = "manager", required = false) Integer manager) {
 
 		Employee newEmp = new Employee();
-		model.addAttribute("firstName", employee.getFirstName());
-		model.addAttribute("lastName", employee.getLastName());
-		model.addAttribute("startdate", employee.getStartDate());
-		model.addAttribute("title", employee.getTitle());
-		model.addAttribute("manager", employee.getManager());
+		Employee managerchef = service.findById(manager);
 
 		newEmp.setFirstName(employee.getFirstName());
 		newEmp.setLastName(employee.getLastName());
 		newEmp.setStartDate(employee.getStartDate());
 		newEmp.setTitle(employee.getTitle());
-		newEmp.setManager(employee.getManager());
+		newEmp.setManager(managerchef);
 
 		service.save(newEmp);
 
@@ -105,42 +130,45 @@ public class MainController {
 		return "redirect:/listemployee";
 	}
 
+////////////////////////////////////////// fonction deletee////////////////////////////////////////////////////////
 	@GetMapping(path = "/delete")
 	public String delete(@ModelAttribute("employee") Employee employee, Model model,
 			@RequestParam(name = "empId") Integer empId) {
-//		EmployeeDaoJpa dao = new EmployeeDaoJpa();
-//		dao.beginTransaction();
-//		dao.deleteById(empId);
-//		dao.commit();
 		service.deleteById(empId);
 		return "redirect:/listemployee";
 	}
+////////////////////////////////fonction update////////////////////////////////////////////////////////////////
 
 	@GetMapping(path = "/update")
-	public String gotoupdate(Model model, @RequestParam(name="empId") int empId) {
+	public String gotoupdate(Model model, @RequestParam(name = "empId") int empId,
+			@RequestParam(value = "manager", required = false) Integer manager) {
 
 		Employee employee = service.findByIdforupdate(empId);
-		model.addAttribute("employee",employee);
+		model.addAttribute("employee", employee);
+		List<Employee> listmanager = service.findManager();
+		model.addAttribute("manager", listmanager);
 
 		return "update";
 	}
 	
 	@PostMapping(path = "/update")
-	public String update(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model) {
-		
+	public String update(@ModelAttribute("employee") Employee employee, BindingResult result, ModelMap model,
+			@RequestParam(value = "manager", required = false) Integer manager) {
+		Employee managerchef = service.findById(manager);
 		employee.setFirstName(employee.getFirstName());
 		employee.setLastName(employee.getLastName());
 		employee.setStartDate(employee.getStartDate());
 		employee.setTitle(employee.getTitle());
-		employee.setManager(employee.getManager());
+		employee.setManager(managerchef);
 
 		service.update(employee);
 
 		model.put("employee", service.findAll());
 		return "redirect:/listemployee";
 	}
-	
-	
+
+////////////////////////////////se rendre sur différentes pages////////////////////////////////////////////////////////////////
+
 	@GetMapping(path = "/contact")
 	public String contact() {
 		return "contact";

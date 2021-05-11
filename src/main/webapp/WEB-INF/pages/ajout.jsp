@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -39,21 +40,30 @@
 <form:errors path="lastName" />
 
 <label>Votre titre</label>
-<form:input path="title" />
+<form:select path="title">
+	<option value="null">Sélectionnez votre poste</option>
+	<option value="President">President</option>
+	<option value="Vice President">Vice President</option>
+	<option value="Treasurer">Trésorier</option>
+	<option value="Operations Manager">directeur des opérations</option>
+	<option value="Loan Manager">gestionnaire de pret</option>
+	<option value="Head Teller">Chef de caisse</option>
+	<option value="Teller">Caissier</option>
+</form:select>
 <form:errors path="title" />
-
 
 <label>Votre date d'embauche</label>
 <form:input path="startDate" type="date"  />
 <form:errors path="startDate" />
 
-
 <label>Id de votre manager</label>
-<%-- <form:select path="manager" >
-<form:option value="1" label="1"/>
-<form:option value="2" label="2"/>
-<form:option value="3" label="3"/>
-</form:select> --%>
+<form:select path="manager">
+	<option value="null"></option>
+		<c:forEach var="manager" items="${manager}">
+	<option value="${manager.empId}">${manager}</option>
+	</c:forEach>
+	
+</form:select>
 <br>
 </div>
 <input class="enregistrer" type="submit" value="Enregistrer"/>

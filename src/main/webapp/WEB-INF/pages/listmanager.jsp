@@ -55,7 +55,6 @@
                   
                   <tbody>
                           <tr>
-                          <th type="hidden">
                             <th><c:out value="${list.firstName}" /></th>
                         	<th><c:out value="${list.lastName}" /></th>
                         	<th><c:out value="${list.title}" /></th>

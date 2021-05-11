@@ -36,7 +36,7 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 	
 	public List<Employee> findParam() {
 
-		return em.createQuery("select emp from Employee emp where manager is null").getResultList();
+		return em.createQuery("select emp from Employee emp where manager is null ").getResultList();
 	}
 
 	

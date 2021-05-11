@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +34,8 @@
                     <h3 class="panel-title">Liste des Employee sans Managers</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
-                  </div>
+<!--                      <button type="button" class="btn btn-sm btn-primary btn-create" onclick="return confirm('Are you sure to Add Manager?')" >Ajouter manager</button></a>
+ -->                  </div>
                 </div>
               </div>
               <div class="panel-body">
@@ -46,28 +48,34 @@
                         <th>Titre</th>
                         <th>Date d'embauche</th>
                         <th>Ajouter un manager</th>
+                        <th>Valider</th>
                     </tr> 
                   </thead>
-                  <tbody>
-                          <tr>
-                            <th>1</th>
-                        	<th>Employee_Prénom</th>
-                        	<th>Employee_Nom</th>
-                        	<th>Employee_Titre</th>
-                        	<th>Employee_Date d'embauche</th>
-                            <td align="center">
-							<div class="dropdown">
-    						<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">List manager</button>
-						    <ul class="dropdown-menu">
-      						<li>manager 1</li>
-    						<li>manager 2</li>
-      						<li>manager 3</li>
-      						 <li>manager 3</li>
-    						</ul>
-  							</div>
-							</td>
+                  <form:form modelAttribute="employee" action="update"  method="post" >
+                  <c:forEach var="list" items="${list}">
+                  <tbody style="text-align: center;">
+                          <tr style="text-align: center;">
+                            <th style="text-align: center;"><c:out value="${list.empId}"/></th>
+                        	<th style="text-align: center;"><c:out value="${list.firstName}" /></th>
+                        	<th style="text-align: center;"><c:out value="${list.lastName}" /></th>
+                        	<th style="text-align: center;"><c:out value="${list.title}" /></th>
+                        	<th style="text-align: center;"><c:out value="${list.startDate}" /></th>
+							<th style="text-align: center;">
+								<select>
+								<option value="null"></option>
+								<c:forEach var="manager" items="${manager}">
+                                        <option value="${manager.empId}">${manager}</option>
+                                </c:forEach>
+                                </select>
+                                </th>
+                                <th style="text-align: center;">
+                     <button type="submit" class="btn btn-sm btn-primary btn-create" onclick="return confirm('Are you sure to Add Manager?')" >Ajouter manager</button></a>
+                            </th>
                           </tr>
+                     
                         </tbody>
+                        </c:forEach>
+                </form:form>        
                 </table>
             
             

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -49,11 +51,13 @@
 
 
 <label>Id de votre manager</label>
-<%-- <form:select path="manager" >
-<form:option value="1" label="1"/>
-<form:option value="2" label="2"/>
-<form:option value="3" label="3"/>
-</form:select> --%>
+<form:select path="manager">
+	<option value="null"></option>
+		<c:forEach var="manager" items="${manager}">
+	<option value="${manager.empId}">${manager}</option>
+	</c:forEach>
+	
+</form:select>
 <br>
 </div>
 <input class="Modifier" type="submit" value="Enregistrer"/>
