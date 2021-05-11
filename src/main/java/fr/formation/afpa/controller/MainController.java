@@ -111,11 +111,11 @@ public class MainController {
 
 	@GetMapping(path = "/delete")
 	public String delete(@ModelAttribute("employee") Employee employee, Model model, @RequestParam(name="empId") Integer empId) {
-		EmployeeDaoJpa dao = new EmployeeDaoJpa();
-		dao.beginTransaction();
-		dao.deleteById(empId);
-		dao.commit();
-		//service.deleteById(empId);
+//		EmployeeDaoJpa dao = new EmployeeDaoJpa();
+//		dao.beginTransaction();
+//		dao.deleteById(empId);
+//		dao.commit();
+		service.deleteById(empId);
 		return "redirect:/listemployee";
 	}
 	

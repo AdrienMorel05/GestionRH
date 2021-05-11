@@ -26,12 +26,6 @@ public class EmployeeService implements IEmployeeService {
 	public EmployeeService() {
 	}
 
-	@Override
-	public Employee findById(Integer id) {
-		dao.beginTransaction();
-		Employee emp = dao.findById(id);
-		return emp;
-	}
 
 	@Override
 	public List<Employee> findAll() {
@@ -61,13 +55,12 @@ public class EmployeeService implements IEmployeeService {
 	public Employee update(Employee t) {
 		dao.beginTransaction();
 		dao.update(t);
-		dao.commitAndCloseTransaction();
+		dao.commit();
 		return t;
 	}
 
 	@Override
 	public void delete(Employee t) {
-		dao.beginTransaction();
 		dao.delete(t);
 
 	}
@@ -77,6 +70,11 @@ public class EmployeeService implements IEmployeeService {
 		dao.beginTransaction();
 		delete(findById(id));
 		dao.commit();
+	}
+	@Override
+	public Employee findById(Integer id) {
+		Employee emp = dao.findById(id);
+		return emp;
 	}
 
 }
