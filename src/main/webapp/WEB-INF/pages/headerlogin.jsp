@@ -35,7 +35,7 @@
           <form id="nav_droite" class="form-inline my-2 my-lg-0">
           	 <a href="${pageContext.request.contextPath}/?lang=fr"> <img src="img/france.png" alt="Français"/></a>
 		    <a href="${pageContext.request.contextPath}/?lang=en"> <img src="img/angleterre.png" alt="English"/></a>
-            <a href="/" class="phlogin"><img  src="img/login.png" alt="login"/></a>
+            <a href="/" class="phlogin"><img  src="img/logii.png" alt="login"/></a>
           </form>
         
     </nav>

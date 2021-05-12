@@ -41,8 +41,8 @@
           <div>
           <form id="nav_droite" class="form-inline my-2 my-lg-0">
           
-          	 <a href="${pageContext.request.contextPath}/?lang=fr"> <img src="img/france.png" alt="Français"/></a>
-		     <a href="${pageContext.request.contextPath}/?lang=en"> <img src="img/angleterre.png" alt="English"/> </a>
+          	 <a href="?lang=fr"> <img src="img/france.png" alt="Français"/></a>
+		     <a href="?lang=en"> <img src="img/angleterre.png" alt="English"/> </a>
           
             <a href="/" ><img src="img/logout.png" alt="Logout"/></a>
           </form>
