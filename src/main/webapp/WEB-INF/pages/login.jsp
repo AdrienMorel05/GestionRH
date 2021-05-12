@@ -25,14 +25,14 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
-            <h4>Bienvenue</h4>
+            <h4><spring:message code="label.welcome"></spring:message></h4>
             <form:form action="manager" method="post">
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="<spring:message code="label.userName"></spring:message>" />
             <br>
-            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+            <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="<spring:message code="label.password"></spring:message>" />
             <br>
             <div class="wrapper">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="login"/>
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value="<spring:message code="label.submit"></spring:message>"/>
             </div>
        </form:form>
         

@@ -56,6 +56,7 @@ public class ApplicationConfigurerAdapter {
 		SessionLocaleResolver resolver = new SessionLocaleResolver();
 		return resolver;
 	}
+	
 	 @Bean(name="entityManagerFactoryBean")
 	   public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 	      LocalContainerEntityManagerFactoryBean em 

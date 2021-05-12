@@ -41,14 +41,14 @@
 
 <label>Votre titre</label>
 <form:select path="title">
-	<option value="null">Sélectionnez votre poste</option>
-	<option value="President">President</option>
-	<option value="Vice President">Vice President</option>
-	<option value="Treasurer">Trésorier</option>
-	<option value="Operations Manager">directeur des opérations</option>
-	<option value="Loan Manager">gestionnaire de pret</option>
-	<option value="Head Teller">Chef de caisse</option>
-	<option value="Teller">Caissier</option>
+	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
+	<option value="President"><spring:message code="label.president"></spring:message></option>
+	<option value="Vice President"><spring:message code="label.vicepresident"></spring:message></option>
+	<option value="Treasurer"><spring:message code="label.treasurer"></spring:message></option>
+	<option value="Operations Manager"><spring:message code="label.operationmanager"></spring:message></option>
+	<option value="Loan Manager"><spring:message code="label.loanmanager"></spring:message></option>
+	<option value="Head Teller"><spring:message code="label.headteller"></spring:message></option>
+	<option value="Teller"><spring:message code="label.teller"></spring:message></option>
 </form:select>
 <form:errors path="title" />
 
@@ -66,7 +66,7 @@
 </form:select>
 <br>
 </div>
-<input class="enregistrer" type="submit" value="Enregistrer"/>
+<input class=" btn btn-secondary enregistrer" type="submit" value="Enregistrer"/>
 
 </form:form>
 <img class="photo" alt="titephoto" src="img/serrermain.jpg">

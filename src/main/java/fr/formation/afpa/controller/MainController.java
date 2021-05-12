@@ -75,6 +75,8 @@ public class MainController {
 	public String getListEmployee(@ModelAttribute("employee") Employee employee, Model model) {
 		List<Employee> list = service.findAll();
 		model.addAttribute("list", list);
+		int countPagination = list.size()/10;
+		model.addAttribute("countPagination", countPagination);
 		System.out.println(list);
 		return "listemployee";
 	}
@@ -130,7 +132,7 @@ public class MainController {
 		return "redirect:/listemployee";
 	}
 
-////////////////////////////////////////// fonction deletee////////////////////////////////////////////////////////
+////////////////////////////////////////// fonction delete////////////////////////////////////////////////////////
 	@GetMapping(path = "/delete")
 	public String delete(@ModelAttribute("employee") Employee employee, Model model,
 			@RequestParam(name = "empId") Integer empId) {
@@ -140,13 +142,13 @@ public class MainController {
 ////////////////////////////////fonction update////////////////////////////////////////////////////////////////
 
 	@GetMapping(path = "/update")
-	public String gotoupdate(Model model, @RequestParam(name = "empId") int empId,
-			@RequestParam(value = "manager", required = false) Integer manager) {
+	public String gotoupdate(Model model, @RequestParam(name = "empId") int empId) {
 
 		Employee employee = service.findByIdforupdate(empId);
 		model.addAttribute("employee", employee);
+		
 		List<Employee> listmanager = service.findManager();
-		model.addAttribute("manager", listmanager);
+		model.addAttribute("listmanager", listmanager);
 
 		return "update";
 	}

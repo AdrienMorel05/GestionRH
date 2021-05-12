@@ -1,4 +1,8 @@
- <div class="container-fluid header">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>  <div class="container-fluid header">
+<%@ page isELIgnored="false"%> 
         <header>
 			<img alt="bandeau header" src="img/header.png">
 		</header>
@@ -14,31 +18,33 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-              <a class="nav-link" href="listmanager">Accueil </a>
+              <a class="nav-link" href="listmanager"><spring:message code="label.home"></spring:message></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="aboutus">Qui sommes nous ?</a>
+              <a class="nav-link" href="aboutus"><spring:message code="label.aboutus"></spring:message></a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="listmanager">Manager </a>
+              <a class="nav-link" href="listmanager">Manager</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="listemployee">Employee</a>
+              <a class="nav-link" href="listemployee"><spring:message code="label.employee"></spring:message></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="param">Parametres</a>
+              <a class="nav-link" href="param"><spring:message code="label.parametre"></spring:message></a>
             </li>
           </ul>
           </div>
       
-          </div>
+          <div>
           <form id="nav_droite" class="form-inline my-2 my-lg-0">
-          	 <a href=""><img src="img/france.png" alt="Français"/></a>
-		    <a href=""><img src="img/angleterre.png" alt="English"/></a>
-            <a href="/" ><img src="img/logout.png" alt="English"/></a>
+          
+          	 <a href="${pageContext.request.contextPath}/?lang=fr"> <img src="img/france.png" alt="FranÃ§ais"/></a>
+		     <a href="${pageContext.request.contextPath}/?lang=en"> <img src="img/angleterre.png" alt="English"/> </a>
+          
+            <a href="/" ><img src="img/logout.png" alt="Logout"/></a>
           </form>
         </div>
     </nav>

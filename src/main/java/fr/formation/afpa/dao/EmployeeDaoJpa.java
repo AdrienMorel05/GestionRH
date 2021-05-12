@@ -26,12 +26,16 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 	public List<Employee> findAll() {
 
-		return em.createQuery("select emp from Employee emp").getResultList();
+		return em.createQuery("select emp from Employee emp ").getResultList();
 	}
+	public List<Employee> findAll(Integer first,Integer max) {
 
+		return em.createQuery("select emp from Employee emp ").setFirstResult(first).setMaxResults(max).getResultList();
+	}
 	public List<Employee> findManager() {
 
-		return em.createQuery("select distinct manager from Employee superior_emp").getResultList();
+		return em.createQuery("select distinct manager from Employee superior_emp").
+				getResultList();
 	}
 	
 	public List<Employee> findParam() {

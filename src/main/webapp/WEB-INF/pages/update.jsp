@@ -17,6 +17,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 </head>
 <body>
  
@@ -41,7 +43,16 @@
 <form:errors path="lastName" />
 
 <label>Votre titre</label>
-<form:input path="title" value="${title}"/>
+<form:select path="title" value="${title}">
+	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
+	<option value="President"><spring:message code="label.president"></spring:message></option>
+	<option value="Vice President"><spring:message code="label.vicepresident"></spring:message></option>
+	<option value="Treasurer"><spring:message code="label.treasurer"></spring:message></option>
+	<option value="Operations Manager"><spring:message code="label.operationmanager"></spring:message></option>
+	<option value="Loan Manager"><spring:message code="label.loanmanager"></spring:message></option>
+	<option value="Head Teller"><spring:message code="label.headteller"></spring:message></option>
+	<option value="Teller"><spring:message code="label.teller"></spring:message></option>
+</form:select>
 <form:errors path="title" />
 
 
@@ -50,18 +61,19 @@
 <form:errors path="startDate" />
 
 
-<label>Id de votre manager</label>
+<label>Votre manager</label>
 <form:select path="manager">
-	<option value="null"></option>
-		<c:forEach var="manager" items="${manager}">
-	<option value="${manager.empId}">${manager}</option>
+	<option value="${manager}">${manager}</option>
+		<c:forEach var="listmanager" items="${listmanager}">
+	<option value="${listmanager.empId}">${listmanager}</option>
 	</c:forEach>
 	
 </form:select>
 <br>
 </div>
-<input class="Modifier" type="submit" value="Enregistrer"/>
+<input class=" btn btn-secondary enregistrer" type="submit" value="Modifier"/>
 </form:form>
+
 <img class="photo" alt="titephoto" src="img/update.jpg">
         
             </div>
