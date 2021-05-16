@@ -168,7 +168,20 @@ public class MainController {
 		model.put("employee", service.findAll());
 		return "redirect:/listemployee";
 	}
+////////////////////////////////se rendre sur sub////////////////////////////////////////////////////////////////
 
+	@GetMapping(path = "/sub")
+	public String sub(@ModelAttribute("employee") Employee employee, Model model, @RequestParam(name = "empId") int empId) {
+		System.out.println(empId);
+		List<Employee> list = service.findsub(empId);
+		System.out.println(list);
+		model.addAttribute("list", list);
+		Employee managerchef = service.findById(empId);
+		System.out.println(managerchef);
+		model.addAttribute("nommanager", managerchef);
+		return "sub";
+	}
+	
 ////////////////////////////////se rendre sur différentes pages////////////////////////////////////////////////////////////////
 
 	@GetMapping(path = "/contact")

@@ -11,6 +11,7 @@ public interface IEmployeeService {
 	List<Employee> findAll();
 	List<Employee> findManager();	
 	List<Employee> findParam();
+	List<Employee> findsub(Integer id);
 
 	
 	Employee save(Employee t);

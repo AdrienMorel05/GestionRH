@@ -44,6 +44,11 @@ public class EmployeeService implements IEmployeeService {
 		return list;
 	}
 	@Override
+	public List<Employee> findsub(Integer id) {
+		List<Employee> list = dao.findsub(id);
+		return list;
+	}
+	@Override
 	public Employee save(Employee t) {
 		dao.save(t);
 		return t;
@@ -74,5 +79,6 @@ public class EmployeeService implements IEmployeeService {
 		Employee emp = dao.findById(id);
 		return emp;
 	}
+
 
 }

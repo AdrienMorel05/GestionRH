@@ -43,6 +43,9 @@
                 </div>
               </div>
               <div class="panel-body">
+              
+                  <form:form modelAttribute="employee" action="param"  method="post" >
+              
                 <table class="table table-striped table-bordered table-list" data-toggle="table"
 						data-search="false" data-show-columns="false" data-pagination="true">
                   <thead>
@@ -56,32 +59,37 @@
                         <th><spring:message code="label.validate"></spring:message></th>
                     </tr> 
                   </thead>
-                  <form:form modelAttribute="employee" action="update"  method="post" >
                   <tbody style="text-align: center;">
                   <c:forEach var="list" items="${list}">
                           <tr style="text-align: center;">
-                            <th style="text-align: center;"><c:out value="${list.empId}"/></th>
-                        	<th style="text-align: center;"><c:out value="${list.firstName}" /></th>
-                        	<th style="text-align: center;"><c:out value="${list.lastName}" /></th>
-                        	<th style="text-align: center;"><c:out value="${list.title}" /></th>
-                        	<th style="text-align: center;"><c:out value="${list.startDate}" /></th>
+                            <th style="text-align: center;"><form:label path="empId" value="${list.empId}"/>${list.empId}</th>
+                        	<th style="text-align: center;"><form:label path="firstName" value="${list.firstName}" />${list.firstName}</th>
+                        	<th style="text-align: center;"><form:label path="lastName" value="${list.lastName}" />${list.lastName}</th>
+                        	<th style="text-align: center;"><form:label path="title" value="${list.title}" />${list.title}</th>
+                        	<th style="text-align: center;"><form:label path="startDate"  value="${list.startDate}" />${list.startDate}</th>
 							<th style="text-align: center;">
-								<select>
-								<option value="null"></option>
+								<form:select path="">
+								<option value="manager"></option>
 								<c:forEach var="manager" items="${manager}">
                                         <option value="${manager.empId}">${manager}</option>
                                 </c:forEach>
-                                </select>
+                                </form:select>
                                 </th>
                                 <th style="text-align: center;">
-                     <button type="submit" class="btn btn-sm btn-primary btn-create" onclick="return confirm('Are you sure to Add Manager?')" >Ajouter manager</button></a>
+                                <input class=" btn btn-primary enregistrer" type="submit" value="Ajouter manager"/>
+                                
+                     <!-- onclick="return confirm('Are you sure to Add Manager?')" --> 
                             </th>
                           </tr>
+                         
                      
                         </c:forEach>
                         </tbody>
-                </form:form>        
                 </table>
+                                                <input class=" btn btn-primary enregistrer" type="submit" value="Ajouter manager"/>
+                
+                                </form:form>        
+                
 </div>
 </div>
 </div>

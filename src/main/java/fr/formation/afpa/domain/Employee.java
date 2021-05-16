@@ -19,151 +19,146 @@ import javax.persistence.TemporalType;
 @Entity
 public class Employee {
 
-@Id
-@GeneratedValue (strategy= GenerationType.IDENTITY)
-@Column(name = "emp_Id", unique = true, nullable=false)
-private int empId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "emp_Id", unique = true, nullable = false)
+	private int empId;
 
-@ManyToOne
-@JoinColumn(name ="SUPERIOR_EMP_ID ")
-private Employee manager;
+	@ManyToOne
+	@JoinColumn(name = "SUPERIOR_EMP_ID ")
+	private Employee manager;
 
-@OneToMany(fetch = FetchType.LAZY, mappedBy = "manager")
-private Set<Employee> employees =  new HashSet<Employee>();
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "manager")
+	private Set<Employee> employees = new HashSet<Employee>();
 
-@Column(name ="first_Name",  nullable=false, length = 30)
-private String firstName;
+	@Column(name = "first_Name", nullable = false, length = 30)
+	private String firstName;
 
-@Column(name ="last_Name", nullable=false, length = 30)
-private String lastName;
+	@Column(name = "last_Name", nullable = false, length = 30)
+	private String lastName;
 
-@Temporal(TemporalType.DATE)
-@Column(name ="start_Date", nullable=false)
-private Date startDate;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "start_Date", nullable = false)
+	private Date startDate;
 
-@Temporal(TemporalType.DATE)
-@Column(name ="end_Date")
-private Date endDate;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "end_Date")
+	private Date endDate;
 
-@Column
-private String title;
+	@Column
+	private String title;
 
-@ManyToOne
-@JoinColumn(name="DEPT_ID")
-private  Department department;
+	@ManyToOne
+	@JoinColumn(name = "DEPT_ID")
+	private Department department;
 
+	public Employee() {
+	}
 
-public Employee() {
-}
+	public int getEmpId() {
+		return empId;
+	}
 
-public int getEmpId() {
-	return empId;
-}
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
 
-public void setEmpId(int empId) {
-	this.empId = empId;
-}
+	public String getFirstName() {
+		return firstName;
+	}
 
-public String getFirstName() {
-	return firstName;
-}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-public void setFirstName(String firstName) {
-	this.firstName = firstName;
-}
+	public String getLastName() {
+		return lastName;
+	}
 
-public String getLastName() {
-	return lastName;
-}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
+	public Date getStartDate() {
+		return startDate;
+	}
 
-public Date getStartDate() {
-	return startDate;
-}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 
-public void setStartDate(Date startDate) {
-	this.startDate = startDate;
-}
+	public Date getEndDate() {
+		return endDate;
+	}
 
-public Date getEndDate() {
-	return endDate;
-}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
 
-public void setEndDate(Date endDate) {
-	this.endDate = endDate;
-}
+	public String getTitle() {
+		return title;
+	}
 
-public String getTitle() {
-	return title;
-}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-public void setTitle(String title) {
-	this.title = title;
-}
+	public Department getDepartment() {
+		return department;
+	}
 
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
+	public Employee getManager() {
+		return manager;
+	}
 
-public Department getDepartment() {
-	return department;
-}
+	public void setManager(Employee manager) {
+		this.manager = manager;
+	}
 
-public void setDepartment(Department department) {
-	this.department = department;
-}
+	public Set<Employee> getEmployees() {
+		return employees;
+	}
 
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
+	}
 
-public Employee getManager() {
-	return manager;
-}
+	public Employee(int empId, String firstName, String lastName, String title, Date startDate, Employee manager) {
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.title = title;
+		this.startDate = startDate;
+		this.manager = manager;
+	}
 
-public void setManager(Employee manager) {
-	this.manager = manager;
-}
+	public Employee(int empId, String firstName, String lastName, String title, Date startDate) {
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.title = title;
+		this.startDate = startDate;
+	}
 
-public Set<Employee> getEmployees() {
-	return employees;
-}
+	public Employee(String firstName, String lastName, String title, Date startDate) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.title = title;
+		this.startDate = startDate;
+	}
 
-public void setEmployees(Set<Employee> employees) {
-	this.employees = employees;
-}
+	public String toString2() {
+		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="
+				+ startDate + ", endDate=" + endDate + ", title=" + title + "]";
+	}
 
-
-public Employee(int empId, String firstName, String lastName, String title, Date startDate,Employee manager) {
-	this.empId = empId;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.title = title;
-	this.startDate = startDate;
-	this.manager = manager;
-}
-
-public Employee(int empId, String firstName, String lastName, String title, Date startDate) {
-	this.empId = empId;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.title = title;
-	this.startDate = startDate;
-}
-
-public Employee(String firstName, String lastName, String title, Date startDate) {
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.title = title;
-	this.startDate = startDate;
-}
-
-public String toString2() {
-	return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="
-			+ startDate + ", endDate=" + endDate + ", title=" + title + "]";
-}
-
-@Override
-public String toString() {
-	return firstName+" " + lastName;
-}
+	@Override
+	public String toString() {
+		return firstName + " " + lastName;
+	}
 
 }

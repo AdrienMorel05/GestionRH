@@ -1,1 +1,1 @@
-	<footer style="position: fixed; bottom: 0;">©Morel Adrien / Formation CDA 2021</footer>
+	<footer class="fixed-bottom" >©Morel Adrien / Formation CDA 2021</footer>

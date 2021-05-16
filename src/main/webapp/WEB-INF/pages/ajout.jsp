@@ -16,6 +16,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style type="text/css">
+.error{
+color: red;}</style>
 </head>
 <body>
  
@@ -30,16 +33,15 @@
 <form:form modelAttribute="employee" action="ajout"  method="post">
 <form:hidden path="empId"/>
 <div class="champs">
-<label>Votre Prénom</label>
+<label>Votre Prénom   <form:errors path="firstName" cssClass="error" /></label>
 <form:input path="firstName"/>
-<form:errors path="firstName" />
 
 
-<label>Votre nom</label>
+
+<label>Votre nom    <form:errors path="lastName" cssClass="error" /></label>
 <form:input path="lastName"/>
-<form:errors path="lastName" />
 
-<label>Votre titre</label>
+ <label>Votre titre   <form:errors path="title" cssClass="error" /></label>
 <form:select path="title">
 	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
 	<option value="President"><spring:message code="label.president"></spring:message></option>
@@ -50,19 +52,16 @@
 	<option value="Head Teller"><spring:message code="label.headteller"></spring:message></option>
 	<option value="Teller"><spring:message code="label.teller"></spring:message></option>
 </form:select>
-<form:errors path="title" />
 
-<label>Votre date d'embauche</label>
+<label>Votre date d'embauche    <form:errors path="startDate" cssClass="error" /></label>
 <form:input path="startDate" type="date"  />
-<form:errors path="startDate" />
 
-<label>Id de votre manager</label>
+<label>Id de votre manager  </label>
 <form:select path="manager">
-	<option value="null"></option>
+	<option value="null" selected="selected"></option>
 		<c:forEach var="manager" items="${manager}">
 	<option value="${manager.empId}">${manager}</option>
 	</c:forEach>
-	
 </form:select>
 <br>
 </div>

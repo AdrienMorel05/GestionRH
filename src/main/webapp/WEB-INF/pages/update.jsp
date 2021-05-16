@@ -34,7 +34,7 @@
 <form:hidden path="empId"/>
 <div class="champs">
 <label>Votre Prénom</label>
-<form:input path="firstName" />
+<form:input path="firstName" value="${firstName}"/>
 <form:errors path="firstName" />
 
 
@@ -43,7 +43,8 @@
 <form:errors path="lastName" />
 
 <label>Votre titre</label>
-<form:select path="title" value="${title}">
+<form:input path="title" value="${title}"/>
+<%-- <form:select path="title" value="${title}">
 	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
 	<option value="President"><spring:message code="label.president"></spring:message></option>
 	<option value="Vice President"><spring:message code="label.vicepresident"></spring:message></option>
@@ -52,7 +53,7 @@
 	<option value="Loan Manager"><spring:message code="label.loanmanager"></spring:message></option>
 	<option value="Head Teller"><spring:message code="label.headteller"></spring:message></option>
 	<option value="Teller"><spring:message code="label.teller"></spring:message></option>
-</form:select>
+</form:select> --%>
 <form:errors path="title" />
 
 
@@ -65,7 +66,10 @@
 <form:select path="manager">
 	<option value="${manager}">${manager}</option>
 		<c:forEach var="listmanager" items="${listmanager}">
-	<option value="${listmanager.empId}">${listmanager}</option>
+	<c:choose>	
+	<c:when test="${employee.manager.empId == listmanager.empId}"><option value="${listmanager.empId}" selected="selected">${listmanager}</option></c:when>
+	<c:when test="${employee.manager.empId != listmanager.empId}"><option value="${listmanager.empId}">${listmanager}</option></c:when>
+	</c:choose>
 	</c:forEach>
 	
 </form:select>

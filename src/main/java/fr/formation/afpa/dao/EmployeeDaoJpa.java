@@ -32,6 +32,8 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 
 		return em.createQuery("select emp from Employee emp ").setFirstResult(first).setMaxResults(max).getResultList();
 	}
+	
+
 	public List<Employee> findManager() {
 
 		return em.createQuery("select distinct manager from Employee superior_emp").
@@ -41,6 +43,11 @@ public class EmployeeDaoJpa implements IEmployeeDaoJpa {
 	public List<Employee> findParam() {
 
 		return em.createQuery("select emp from Employee emp where manager is null ").getResultList();
+	}
+
+	public List<Employee> findsub(Integer id) {
+
+		return em.createQuery("select emp from Employee emp where manager is " + id).getResultList();
 	}
 
 	

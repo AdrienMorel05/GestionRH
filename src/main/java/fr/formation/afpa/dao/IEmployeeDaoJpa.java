@@ -12,6 +12,7 @@ public interface IEmployeeDaoJpa {
 	List<Employee> findAll();
 	List<Employee> findManager();
 	List<Employee> findParam();
+	List<Employee> findsub(Integer id);
 	// create
 	Integer save(Employee e);
 

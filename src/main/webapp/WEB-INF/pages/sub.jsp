@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Liste Manager</title>
+<title>Liste Subordonée</title>
 <link rel="stylesheet" type="text/css" href="styles/styleheaderfooter.css" />
 <link rel="stylesheet" type="text/css" href="styles/stylelist.css" />
 
@@ -36,10 +36,10 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title"><spring:message code="label.titretableaumanager"></spring:message></h3>
+                    <h3 class="panel-title">Liste des subordonnées de : ${nommanager}</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
-                   <a href="ajout"><button type="button" class="btn btn-sm btn-primary btn-create">Ajouter</button></a>
+                   <a href="listmanager"><button type="button" class="btn btn-sm btn-danger btn-create">Retour</button></a>
                   </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@
                         <th data-sortable="true" data-field="lastName"><spring:message code="label.name"></spring:message></th>
                         <th data-sortable="true" data-field="title"><spring:message code="label.title"></spring:message></th>
                         <th data-sortable="true" data-field="startDate"><spring:message code="label.startdate"></spring:message></th>
-                        <th style="text-align:center">Action</th>
+                        
                     </tr> 
                   </thead>
 
@@ -63,11 +63,6 @@
                         	<th><c:out value="${list.lastName}" /></th>
                         	<th><c:out value="${list.title}" /></th>
                         	<th><c:out value="${list.startDate}" /></th>
-                               <td align="center">
-                             
-                            <a class="badge rounded-pill bg-info" href="sub?empId=${list.empId}">List of subordinate</a>
-                            
-                            </td>
                           </tr>
                    </c:forEach>       
                         </tbody>
