@@ -23,8 +23,11 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include> 
-<h2> voici une page de base</h2>
-<jsp:include page="footer.jsp"></jsp:include>
+<a href="https://www.afpa.fr/formation-qualifiante/concepteur-developpeur-informatique" target="_blank"  
+onclick="return confirm('Vous allez etre redirigé vers le site de l'Afpa, etes vous d'accord ?')"> 
+<img src="img/aboutus.png" alt="aboutus"
+style="height: 100%; width: 100%;"/> </a>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p>
 
 </body>
 </html>

@@ -28,20 +28,20 @@ color: red;}</style>
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
 <div class="form-login">
-            <h4>Ajout d'un Manager/Employee</h4>
+            <h4><spring:message code="form.table"></spring:message> </h4>
             
 <form:form modelAttribute="employee" action="ajout"  method="post">
 <form:hidden path="empId"/>
 <div class="champs">
-<label>Votre Prénom   <form:errors path="firstName" cssClass="error" /></label>
+<label><spring:message code="form.firstname"></spring:message>  <form:errors path="firstName" cssClass="error" /></label>
 <form:input path="firstName"/>
 
 
 
-<label>Votre nom    <form:errors path="lastName" cssClass="error" /></label>
+<label><spring:message code="form.name"></spring:message>     <form:errors path="lastName" cssClass="error" /></label>
 <form:input path="lastName"/>
 
- <label>Votre titre   <form:errors path="title" cssClass="error" /></label>
+ <label><spring:message code="form.title"></spring:message>    <form:errors path="title" cssClass="error" /></label>
 <form:select path="title">
 	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
 	<option value="President"><spring:message code="label.president"></spring:message></option>
@@ -53,10 +53,10 @@ color: red;}</style>
 	<option value="Teller"><spring:message code="label.teller"></spring:message></option>
 </form:select>
 
-<label>Votre date d'embauche    <form:errors path="startDate" cssClass="error" /></label>
+<label><spring:message code="form.date"></spring:message>     <form:errors path="startDate" cssClass="error" /></label>
 <form:input path="startDate" type="date"  />
 
-<label>Id de votre manager  </label>
+<label><spring:message code="form.manager"></spring:message>   </label>
 <form:select path="manager">
 	<option value="null" selected="selected"></option>
 		<c:forEach var="manager" items="${manager}">
@@ -65,8 +65,8 @@ color: red;}</style>
 </form:select>
 <br>
 </div>
-<input class=" btn btn-secondary enregistrer" type="submit" value="Enregistrer"/>
-
+<input class=" btn btn-secondary enregistrer" type="submit" value="<spring:message code="form.enregistrer"></spring:message> "/>
+<a href="listemployee"><button style="width: 10%;" type="button" class="btn btn-secondary enregistrer"><spring:message code="label.cancel"></spring:message></button></a>
 </form:form>
 <img class="photo" alt="titephoto" src="img/serrermain.jpg">
         
@@ -75,8 +75,7 @@ color: red;}</style>
     </div>
 </div>
 
-
-<jsp:include page="footer.jsp"></jsp:include>
-
+<br><br>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p>
 </body>
 </html>

@@ -36,10 +36,10 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title"><spring:message code="label.titretableauemployé"></spring:message> </h3>
+                    <h3 class="panel-title"><spring:message code="label.titretableauemployee"></spring:message> </h3>
                   </div>
                   <div class="col col-xs-6 text-right">
-                   <a href="ajout"> <button type="button" class="btn btn-sm btn-primary btn-create">Ajouter</button></a>
+                   <a href="ajout"> <button type="button" class="btn btn-sm btn-primary btn-create"><spring:message code="label.addemployee"></spring:message></button></a>
                   </div>
                 </div>
               </div>
@@ -67,14 +67,14 @@
                         	<th><c:out value="${list.startDate}" /></th>
                         	<th><c:out value="${list.manager}" /></th>
                             <td align="center">
-                              <a class="badge rounded-pill bg-success" href="update?empId=${list.empId}">Edit</a>
+                              <a class="badge rounded-pill bg-success" href="update?empId=${list.empId}"><spring:message code="label.edit"></spring:message></a>
                               
                               
                               
 							  <a class="badge rounded-pill bg-danger" 
 							  href="delete?empId=${list.empId}"
 							  onclick="return confirm('Are you sure to delete?')" >
-							  Delete</a>
+							  <spring:message code="label.delete"></spring:message></a>
                     				<input id="empId" name="empId" type="hidden" value="${list.empId}"/>
                     				<input id="firstName" name="firstName" type="hidden" value="${list.firstName}"/>
                     				<input id="lastName" name="lastName" type="hidden" value="${list.lastName}" />
@@ -93,7 +93,7 @@
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-	<p style="background-color: #333; color:#fff; text-align: center; height: 100px;" > © Morel Adrien / Formation CDA 2021 </p>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p>
 </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

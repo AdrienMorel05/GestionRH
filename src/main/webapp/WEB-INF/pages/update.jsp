@@ -28,21 +28,21 @@
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
 <div class="form-login">
-            <h4>Modification d'un Manager/Employee</h4>
+            <h4><spring:message code="form.update"></spring:message> </h4>
             
 <form:form modelAttribute="employee" action="update"  method="post">
 <form:hidden path="empId"/>
 <div class="champs">
-<label>Votre Prénom</label>
+<label><spring:message code="form.firstname"></spring:message> </label>
 <form:input path="firstName" value="${firstName}"/>
 <form:errors path="firstName" />
 
 
-<label>Votre nom</label>
+<label><spring:message code="form.name"></spring:message> </label>
 <form:input path="lastName" value="${lastName}"/>
 <form:errors path="lastName" />
 
-<label>Votre titre</label>
+<label><spring:message code="form.title"></spring:message> </label>
 <form:input path="title" value="${title}"/>
 <%-- <form:select path="title" value="${title}">
 	<option value="null"><spring:message code="label.addtitle"></spring:message></option>
@@ -57,12 +57,12 @@
 <form:errors path="title" />
 
 
-<label>Votre date d'embauche</label>
+<label><spring:message code="form.date"></spring:message> </label>
 <form:input path="startDate" type="date" value="${startDate}"/>
 <form:errors path="startDate" />
 
 
-<label>Votre manager</label>
+<label><spring:message code="form.manager"></spring:message> </label>
 <form:select path="manager">
 	<option value="${manager}">${manager}</option>
 		<c:forEach var="listmanager" items="${listmanager}">
@@ -75,10 +75,11 @@
 </form:select>
 <br>
 </div>
-<input class=" btn btn-secondary enregistrer" type="submit" value="Modifier"/>
+<input class=" btn btn-secondary enregistrer" type="submit" value="<spring:message code="form.modifier"></spring:message> "/>
+<a href="listemployee"><button style="width: 10%;" type="button" class="btn btn-secondary enregistrer"><spring:message code="label.cancel"></spring:message></button></a>
 </form:form>
 
-<img class="photo" alt="titephoto" src="img/update.jpg">
+<img class="photo" alt="titephoto" src="img/upp.jpg">
         
             </div>
         </div>
@@ -86,7 +87,7 @@
 </div>
 
 
-<jsp:include page="footer.jsp"></jsp:include>
-
+<br><br>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p>
 </body>
 </html>

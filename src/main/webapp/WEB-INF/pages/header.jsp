@@ -44,7 +44,7 @@
           	 <a href="?lang=fr"> <img src="img/france.png" alt="Français"/></a>
 		     <a href="?lang=en"> <img src="img/angleterre.png" alt="English"/> </a>
           
-            <a href="/" ><img src="img/logout.png" alt="Logout"/></a>
+            <a href="login" ><img src="img/logout.png" alt="Logout"/></a>
           </form>
         </div>
     </nav>

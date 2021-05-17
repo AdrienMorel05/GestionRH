@@ -76,7 +76,7 @@
                                 </form:select>
                                 </th>
                                 <th style="text-align: center;">
-                                <input class=" btn btn-primary enregistrer" type="submit" value="Ajouter manager"/>
+                                <input class=" btn btn-primary enregistrer" type="submit" value="<spring:message code="label.confirm"></spring:message>"/>
                                 
                      <!-- onclick="return confirm('Are you sure to Add Manager?')" --> 
                             </th>
@@ -86,7 +86,6 @@
                         </c:forEach>
                         </tbody>
                 </table>
-                                                <input class=" btn btn-primary enregistrer" type="submit" value="Ajouter manager"/>
                 
                                 </form:form>        
                 
@@ -94,8 +93,8 @@
 </div>
 </div>
 
-<jsp:include page="footer.jsp"></jsp:include>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>

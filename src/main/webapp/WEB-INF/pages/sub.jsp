@@ -36,7 +36,7 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
-                    <h3 class="panel-title">Liste des subordonnées de : ${nommanager}</h3>
+                    <h3 class="panel-title"> <spring:message code="label.sub"></spring:message>${nommanager}</h3>
                   </div>
                   <div class="col col-xs-6 text-right">
                    <a href="listmanager"><button type="button" class="btn btn-sm btn-danger btn-create">Retour</button></a>

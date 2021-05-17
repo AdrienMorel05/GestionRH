@@ -51,8 +51,8 @@
     </div>
 </div>
 
-
-<jsp:include page="footer.jsp"></jsp:include>
+<br><br><br>
+	<p style="background-color: #333; color:#fff; text-align: center; height: 100px; padding-top:40px;" > © Morel Adrien / Formation CDA 2021 </p>
 
 </body>
 </html>

@@ -51,7 +51,10 @@ public class MainController {
 	public String getHome() {
 		return "login";
 	}
-
+	@GetMapping(path = "/login")
+	public String getlogin() {
+		return "login";
+	}
 	@PostMapping(path = "/manager")
 	public String login(@ModelAttribute("employee") Employee employee, Model model) {
 		List<Employee> list = service.findManager();
